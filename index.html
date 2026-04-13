@@ -344,6 +344,19 @@ body {
 </div>
 
 </div>
+<script>
+function copyPrompt() {
+  const text = document.getElementById('promptText').innerText;
+  navigator.clipboard.writeText(text);
+
+  const btn = document.querySelector('.copy-btn');
+  btn.innerText = '✅ Copied';
+
+  setTimeout(() => {
+    btn.innerText = '📋 Copy';
+  }, 2000);
+}
+</script>
 
 </body>
 </html>
