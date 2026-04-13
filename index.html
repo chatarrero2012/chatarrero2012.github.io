@@ -1,281 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Davit Ortiz — AI Product Builder</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      color: #e2e8f0;
-    }
-    header {
-      height: 100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      background: linear-gradient(90deg, #38bdf8, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .subtitle {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      opacity: 0.7;
-      max-width: 700px;
-    }
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin:auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-    .grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 20px;
-    }
-    .card {
-      background: rgba(15,23,42,0.6);
-      border: 1px solid rgba(148,163,184,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      backdrop-filter: blur(10px);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Davit Ortiz — AI Systems Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
-    .video {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    .video iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    footer {
-      text-align:center;
-      padding:40px;
-      border-top:1px solid rgba(148,163,184,0.1);
-    }
-    /* --- NUEVOS ESTILOS PARA LOS DOCUMENTOS PDF --- */
-
-/* Contenedor de la lista (limpieza) */
-.pdf-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px; /* Espacio con el título de la tarjeta */
+<style>
+:root {
+  --bg: #05070f;
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #4cc9f0;
+  --accent2: #a78bfa;
 }
 
-/* Espaciado entre elementos de la lista */
-.pdf-item {
-  margin-bottom: 12px;
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 20% 0%, #0b1020, #05070f);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* El enlace convertido en "botón" técnico moderno */
-.pdf-link {
-  display: flex; /* Alinea icono y texto horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  text-decoration: none; /* Quita el subrayado feo */
-  color: #e2e8f0; /* Color de texto claro por defecto */
-  background: rgba(148, 163, 184, 0.05); /* Fondo muy sutil */
-  border: 1px solid rgba(148, 163, 184, 0.1); /* Borde sutil */
-  border-radius: 12px; /* Esquinas redondeadas modernas */
-  padding: 15px;
-  transition: all 0.2s ease-in-out; /* Transición suave para el hover */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-/* --- Efecto Hover (al pasar el mouse) --- */
-.pdf-link:hover {
-  background: rgba(56, 189, 248, 0.1); /* Tinte Cian suave de fondo */
-  border-color: #38bdf8; /* Borde Cian brillante */
-  transform: translateY(-2px); /* Pequeño salto hacia arriba */
-  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2); /* Brillo suave cian */
-}
-
-/* Estilos para el ícono SVG */
-.pdf-icon {
-  width: 32px;
-  height: 32px;
-  fill: none;
-  stroke: #a78bfa; /* Color Morado de tu gradiente por defecto */
-  stroke-width: 1.5;
-  margin-right: 15px; /* Espacio entre icono y texto */
-  flex-shrink: 0; /* Impide que el icono se encoja */
-}
-
-/* Contenedor del texto (Título + Descripción) */
-.pdf-content {
+/* HERO */
+.hero {
+  height: 90vh;
   display: flex;
-  flex-direction: column; /* Stack vertical */
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Título del documento */
-.pdf-title {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #f8fafc; /* Blanco casi puro para el título */
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Descripción del documento */
-.pdf-desc {
-  font-size: 0.9rem;
-  opacity: 0.7; /* Texto más tenue */
-  margin-top: 2px;
+.hero p {
+  margin-top: 20px;
+  max-width: 700px;
+  color: var(--muted);
 }
-  </style>
+
+.tagline {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+/* SECTION */
+.section {
+  margin-top: 100px;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 40px rgba(76,201,240,0.15);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* VIDEO */
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  margin-bottom: 15px;
+}
+
+.video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* PDF */
+.pdf {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  margin-top: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s;
+}
+
+.pdf:hover {
+  border-color: var(--accent);
+  background: rgba(76,201,240,0.08);
+}
+
+/* SEED BLOCK */
+.seed {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin-top: 20px;
+  color: #c9d1d9;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 120px;
+  text-align: center;
+  color: var(--muted);
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>Davit Ortiz</h1>
-  <p class="subtitle">AI Product Builder | Prompt Engineer | LLM Systems Analyst</p>
-  <p class="subtitle">Specializing in LLM behavioral analysis, hallucination dynamics, and Human-in-the-Loop systems.</p>
-  
-</header>
+<div class="container">
 
-<section>
-  <h2>About</h2>
-  <p>
-    AI Product Builder with a background in senior mobile engineering, focused on Prompt Engineering, LLM evaluation, and agentic system design. Experienced in analyzing model failure modes and leveraging controlled hallucinations to design more resilient and expressive AI systems.
-  </p>
+<section class="hero">
+  <h1>Davit Ortiz</h1>
+  <p>AI Product Builder specialized in LLM behavior, hallucination dynamics, and human-in-the-loop systems.</p>
+
+  <div class="tagline">
+    <div class="tag">Prompt Engineering</div>
+    <div class="tag">LLM Analysis</div>
+    <div class="tag">Agent Systems</div>
+  </div>
 </section>
 
-<section>
+<section class="section">
+  <h2>About</h2>
+  <p>AI Product Builder with background in mobile engineering. Focused on building expressive, resilient AI systems through controlled hallucination, evaluation pipelines, and symbolic prompting.</p>
+</section>
+
+<section class="section">
   <h2>Core Skills</h2>
   <div class="grid">
     <div class="card">
       <h3>AI / LLM</h3>
-      <p>Prompt Engineering (Chain-of-Thought, Symbolic Atomization), LLM Evaluation, Hallucination Analysis, Agentic Reasoning</p>
+      <p>Prompt Engineering, Hallucination Analysis, Agentic Reasoning</p>
     </div>
     <div class="card">
-      <h3>Product / Creative</h3>
-      <p>AI Narrative Design, HITL Workflows, Generative Media Pipelines</p>
+      <h3>Product</h3>
+      <p>AI Narrative Design, HITL Systems, Generative Pipelines</p>
     </div>
     <div class="card">
       <h3>Engineering</h3>
-      <p>Python, Swift (iOS), API Integration, System Debugging, Git</p>
+      <p>Python, Swift, APIs, System Debugging</p>
     </div>
   </div>
 </section>
 
-<section>
+<section class="section">
   <h2>Experience</h2>
   <div class="grid">
     <div class="card">
       <h3>Outlier AI</h3>
-      <p>AI Contributor / LLM Evaluator</p>
-      <p>Developed evaluation environments and prompts to benchmark reasoning and improve model alignment through HITL feedback.</p>
+      <p>LLM Evaluator building reasoning benchmarks.</p>
     </div>
     <div class="card">
-      <h3>BairesDev / Amaris / Globant</h3>
-      <p>Senior iOS Developer (2017 – 2023)</p>
-      <p>Led development of high-scale mobile applications with focus on architecture, performance, and system stability.</p>
+      <h3>BairesDev / Globant</h3>
+      <p>Senior iOS Developer (2017–2023)</p>
     </div>
     <div class="card">
       <h3>Big Teeth Media</h3>
-      <p>iOS Developer / Game Dev (2010 – 2015)</p>
-      <p>Worked across interactive media, combining engineering and creative production.</p>
+      <p>Creative + engineering hybrid work.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>AI Projects & Research</h2>
+<section class="section">
+  <h2>AI Projects</h2>
   <div class="grid">
+
     <div class="card">
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/BIRDRx2ea1k" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/BIRDRx2ea1k"></iframe>
       </div>
       <h3>DEEP HUMAN</h3>
-      <p>Prompt-driven narrative system where story emerges through iterative generation and feedback loops.</p>
+      <p>Emergent narrative system through prompts.</p>
     </div>
 
     <div class="card">
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/T24Avh2RUjY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/T24Avh2RUjY"></iframe>
       </div>
       <h3>IGNORANT!</h3>
-      <p>AI-generated sci-fi series using symbolic prompt structuring to improve narrative consistency.</p>
+      <p>AI sci-fi built with symbolic prompts.</p>
     </div>
 
     <div class="card">
-      <h3>Technical Papers & Latent Research</h3>
-      <p class="subtitle" style="font-size: 1rem; margin-top: 5px; opacity: 0.8;">Analytical analysis on model failure modes, stochastic entropy, and emergent AI dialects.</p>
+      <h3>Research</h3>
 
-      <ul class="pdf-list">
-        
-        <li class="pdf-item">
-          <a href="phi4-latent-collapse-analysis.pdf" target="_blank" class="pdf-link">
-            <svg class="pdf-icon" viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            <div class="pdf-content">
-              <span class="pdf-title">Anatomy of a Latent Collapse</span>
-              <span class="pdf-desc">Technical analysis of stochastic entropy in phi-4 models.</span>
-            </div>
-          </a>
-        </li>
+      <a class="pdf" href="phi4-latent-collapse-analysis.pdf" target="_blank">
+        <div>
+          <strong>Anatomy of a Latent Collapse</strong><br>
+          <span class="muted">Entropy analysis</span>
+        </div>
+      </a>
 
-        <li class="pdf-item">
-          <a href="SEMANTIC-SURVIVAL.pdf" target="_blank" class="pdf-link">
-            <svg class="pdf-icon" viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            <div class="pdf-content">
-              <span class="pdf-title">Architecture of Semantic Survival</span>
-              <span class="pdf-desc">Confabulation as a social buffer in LLMs.</span>
-            </div>
-          </a>
-        </li>
+      <a class="pdf" href="SEMANTIC-SURVIVAL.pdf" target="_blank">
+        <div>
+          <strong>Semantic Survival</strong><br>
+          <span class="muted">Confabulation systems</span>
+        </div>
+      </a>
 
-        <li class="pdf-item">
-          <a href="seed-languaje.pdf" target="_blank" class="pdf-link">
-            <svg class="pdf-icon" viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            <div class="pdf-content">
-              <span class="pdf-title">SEED-LANGUAGE: Emerging AI Dialects</span>
-              <span class="pdf-desc">Machine-native communication protocols (Bogotá 2026).</span>
-            </div>
-          </a>
-        </li>
-      </ul>
+      <a class="pdf" href="seed-languaje.pdf" target="_blank">
+        <div>
+          <strong>Seed Language</strong><br>
+          <span class="muted">AI dialects</span>
+        </div>
+      </a>
+
     </div>
+
   </div>
 </section>
+
 <section id="seed-generator" style="background-color: #0d1117; color: #c9d1d9; padding: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius: 8px; border: 1px solid #30363d; max-width: 800px; margin: 20px auto;">
     
     <div style="border-left: 4px solid #58a6ff; padding-left: 20px; margin-bottom: 30px;">
@@ -309,10 +302,12 @@
         <span style="font-size: 0.8em; color: #484f58; font-style: italic;">Powered by "Seed-Language" Protocol | Methodology by Davit Ortiz</span>
     </div>
 </section>
-<footer>
-  <p>Bogotá, Colombia · chratero@gmail.com · +57 321 3027725</p>
-  <p style="opacity:0.6; margin-top:10px;">linkedin.com/in/davit-ortiz-ios-developper</p>
-</footer>
+
+<div class="footer">
+  Bogotá · chratero@gmail.com · +57
+</div>
+
+</div>
 
 </body>
 </html>
