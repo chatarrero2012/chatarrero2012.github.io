@@ -1,74 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davit Ortiz — AI Product Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #e2e8f0;
+    }
+    header {
+      height: 100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, #38bdf8, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      opacity: 0.7;
+      max-width: 700px;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin:auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(148,163,184,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    footer {
+      text-align:center;
+      padding:40px;
+      border-top:1px solid rgba(148,163,184,0.1);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="hero">
-            <h1>Welcome to My Professional Portfolio</h1>
-            <p>Your gateway to explore my work and skills!</p>
-        </div>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate about advancing technology and creativity, I specialize in AI, product development, and software engineering.</p>
-    </section>
-    <section id="featured-videos">
-        <h2>Featured Videos</h2>
-        <div class="video">
-            <h3>DEEP HUMAN</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video">
-            <h3>IGNORANT</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Project A</li>
-            <li>Project B</li>
-            <li>Project C</li>
-        </ul>
-    </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <h3>AI/LLM</h3>
-        <ul>
-            <li>Machine Learning</li>
-            <li>Natural Language Processing</li>
-        </ul>
-        <h3>Product/Creative</h3>
-        <ul>
-            <li>Product Design</li>
-            <li>Creative Strategy</li>
-        </ul>
-        <h3>Engineering</h3>
-        <ul>
-            <li>Software Development</li>
-            <li>Web Development</li>
-        </ul>
-    </section>
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <ul>
-            <li>Company A - Position A (Year - Year)</li>
-            <li>Company B - Position B (Year - Year)</li>
-        </ul>
-    </section>
-    <footer>
-        <h2>Contact Me</h2>
-        <ul>
-            <li><a href="mailto:your.email@example.com">Email</a></li>
-            <li><a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
-            <li><a href="https://github.com/chatarrero2012">GitHub</a></li>
-            <li>Phone: (123) 456-7890</li>
-        </ul>
-    </footer>
+
+<header>
+  <h1>Davit Ortiz</h1>
+  <p class="subtitle">AI Product Builder | Prompt Engineer | LLM Systems Analyst</p>
+  <p class="subtitle">Specializing in LLM behavioral analysis, hallucination dynamics, and Human-in-the-Loop systems.</p>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>
+    AI Product Builder with a background in senior mobile engineering, focused on Prompt Engineering, LLM evaluation, and agentic system design. Experienced in analyzing model failure modes and leveraging controlled hallucinations to design more resilient and expressive AI systems.
+  </p>
+</section>
+
+<section>
+  <h2>Core Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>AI / LLM</h3>
+      <p>Prompt Engineering (Chain-of-Thought, Symbolic Atomization), LLM Evaluation, Hallucination Analysis, Agentic Reasoning</p>
+    </div>
+    <div class="card">
+      <h3>Product / Creative</h3>
+      <p>AI Narrative Design, HITL Workflows, Generative Media Pipelines</p>
+    </div>
+    <div class="card">
+      <h3>Engineering</h3>
+      <p>Python, Swift (iOS), API Integration, System Debugging, Git</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Outlier AI</h3>
+      <p>AI Contributor / LLM Evaluator</p>
+      <p>Developed evaluation environments and prompts to benchmark reasoning and improve model alignment through HITL feedback.</p>
+    </div>
+    <div class="card">
+      <h3>BairesDev / Amaris / Globant</h3>
+      <p>Senior iOS Developer (2017 – 2023)</p>
+      <p>Led development of high-scale mobile applications with focus on architecture, performance, and system stability.</p>
+    </div>
+    <div class="card">
+      <h3>Big Teeth Media</h3>
+      <p>iOS Developer / Game Dev (2010 – 2015)</p>
+      <p>Worked across interactive media, combining engineering and creative production.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>AI Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/BIRDRx2ea1k" allowfullscreen></iframe>
+      </div>
+      <h3>DEEP HUMAN</h3>
+      <p>Prompt-driven narrative system where story emerges through iterative generation and feedback loops.</p>
+    </div>
+    <div class="card">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/T24Avh2RUjY" allowfullscreen></iframe>
+      </div>
+      <h3>IGNORANT!</h3>
+      <p>AI-generated sci-fi series using symbolic prompt structuring to improve narrative consistency.</p>
+    </div>
+    <div class="card">
+      <h3>Hallucination Analysis</h3>
+      <p>Research on model failure modes and personality hardening frameworks for robust AI systems.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Bogotá, Colombia · chratero@gmail.com · +57 321 3027725</p>
+  <p style="opacity:0.6; margin-top:10px;">linkedin.com/in/davit-ortiz-ios-developper</p>
+</footer>
+
 </body>
 </html>
