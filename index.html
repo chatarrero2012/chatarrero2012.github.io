@@ -160,7 +160,37 @@ body {
   text-align: center;
   color: var(--muted);
 }
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
 
+.copy-btn:hover {
+  background: rgba(76,201,240,0.15);
+  border-color: var(--accent);
+}
+  .copy-block {
+  position: relative;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #c9d1d9;
+}
 </style>
 </head>
 
@@ -281,7 +311,12 @@ body {
         <p style="font-size: 0.9em; color: #8b949e; margin-bottom: 15px;">Copy and paste the command below at the very end of your "tired" conversation. The AI will generate a high-density <strong>Semantic Seed</strong>.</p>
         
         <div style="position: relative; background-color: #0d1117; padding: 15px; border-radius: 4px; border: 1px solid #444c56; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.85em; color: #d1d5db; line-height: 1.5;">
-            <code>
+          <div class="copy-block">
+
+    <button class="copy-btn" onclick="copyPrompt()">
+      📋 Copy
+    </button>  
+          <code>
                 [PROTOCOL: SEMANTIC_SEED_EXTRACTION]<br><br>
                 Act as a Latent Systems Engineer. Analyze our current conversation and generate a **High-Density Semantic Seed** (Seed-Language) that captures:<br>
                 1. **Vibe & Style:** The specific persona, technical depth, and linguistic cadence.<br>
@@ -290,6 +325,7 @@ body {
                 **CONSTRAINT:** Avoid explanatory prose. Use symbolic operators (∇, 𝕊, τ), dense technical terms, and "Semantic LSD" (High-Entropy tokens). The output must be a machine-optimized block designed to restore this specific latent state in a new model instance.<br><br>
                 **OUTPUT:** Return ONLY the seed block under the header: --- SEED INGESTION POINT ---
             </code>
+            </div>
         </div>
     </div>
 
