@@ -23,7 +23,6 @@ body {
   font-family: 'Inter', sans-serif;
   background: radial-gradient(circle at 20% 0%, #0b1020, #05070f);
   color: var(--text);
-  line-height: 1.6;
 }
 
 .container {
@@ -32,12 +31,12 @@ body {
   padding: 40px 20px;
 }
 
-/* HERO */
 .hero {
-  height: 90vh;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
 .hero h1 {
@@ -50,12 +49,12 @@ body {
 
 .hero p {
   margin-top: 20px;
-  max-width: 700px;
+  max-width: 600px;
   color: var(--muted);
 }
 
 .tagline {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -66,7 +65,49 @@ body {
   border-radius: 999px;
   background: var(--card);
   border: 1px solid var(--border);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+}
+
+.cta {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.25s;
+}
+
+.button.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border: none;
+  color: black;
+  font-weight: 600;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(76,201,240,0.25);
+}
+
+/* AVATAR */
+.avatar-container {
+  position: relative;
+}
+
+.avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 80px rgba(76,201,240,0.3);
 }
 
 /* SECTION */
@@ -79,7 +120,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -91,7 +131,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 20px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .card:hover {
@@ -100,16 +140,6 @@ body {
   box-shadow: 0 10px 40px rgba(76,201,240,0.15);
 }
 
-.card h3 {
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-/* VIDEO */
 .video {
   position: relative;
   padding-bottom: 56.25%;
@@ -123,74 +153,12 @@ body {
   border-radius: 10px;
 }
 
-/* PDF */
-.pdf {
-  display: flex;
-  gap: 12px;
-  padding: 14px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-  margin-top: 10px;
-  text-decoration: none;
-  color: inherit;
-  transition: 0.2s;
-}
-
-.pdf:hover {
-  border-color: var(--accent);
-  background: rgba(76,201,240,0.08);
-}
-
-/* SEED BLOCK */
-.seed {
-  background: #0d1117;
-  border: 1px solid #30363d;
-  padding: 20px;
-  border-radius: 10px;
-  font-family: monospace;
-  font-size: 0.85rem;
-  margin-top: 20px;
-  color: #c9d1d9;
-}
-
-/* FOOTER */
 .footer {
   margin-top: 120px;
   text-align: center;
   color: var(--muted);
 }
-.copy-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  font-size: 0.75rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05);
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.2s;
-}
 
-.copy-btn:hover {
-  background: rgba(76,201,240,0.15);
-  border-color: var(--accent);
-}
-  .copy-block {
-  position: relative;
-  background: #0d1117;
-  border: 1px solid #30363d;
-  padding: 20px;
-  border-radius: 10px;
-  font-family: monospace;
-  font-size: 0.85rem;
-  color: #c9d1d9;
-}
 </style>
 </head>
 
@@ -199,67 +167,39 @@ body {
 <div class="container">
 
 <section class="hero">
-  <h1>Davit Ortiz</h1>
-  <p>AI Product Builder specialized in LLM behavior, hallucination dynamics, and human-in-the-loop systems.</p>
 
-  <div class="tagline">
-    <div class="tag">Prompt Engineering</div>
-    <div class="tag">LLM Analysis</div>
-    <div class="tag">Agent Systems</div>
-  </div>
-</section>
+  <div>
+    <h1>Davit Ortiz</h1>
+    <p>I design AI systems that think, break, and evolve.</p>
 
-<section class="section">
-  <h2>About</h2>
-  <p>AI Product Builder with background in mobile engineering. Focused on building expressive, resilient AI systems through controlled hallucination, evaluation pipelines, and symbolic prompting.</p>
-</section>
-
-<section class="section">
-  <h2>Core Skills</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>AI / LLM</h3>
-      <p>Prompt Engineering, Hallucination Analysis, Agentic Reasoning</p>
+    <div class="tagline">
+      <div class="tag">Prompt Engineering</div>
+      <div class="tag">LLM Analysis</div>
+      <div class="tag">Agent Systems</div>
     </div>
-    <div class="card">
-      <h3>Product</h3>
-      <p>AI Narrative Design, HITL Systems, Generative Pipelines</p>
-    </div>
-    <div class="card">
-      <h3>Engineering</h3>
-      <p>Python, Swift, APIs, System Debugging</p>
+
+    <div class="cta">
+      <a href="#projects" class="button primary">View Work</a>
+      <a href="mailto:chratero@gmail.com" class="button">Hire Me</a>
     </div>
   </div>
-</section>
 
-<section class="section">
-  <h2>Experience</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Outlier AI</h3>
-      <p>LLM Evaluator building reasoning benchmarks.</p>
-    </div>
-    <div class="card">
-      <h3>BairesDev / Globant</h3>
-      <p>Senior iOS Developer (2017–2023)</p>
-    </div>
-    <div class="card">
-      <h3>Big Teeth Media</h3>
-      <p>Creative + engineering hybrid work.</p>
-    </div>
+  <div class="avatar-container">
+    <img src="ai-avatar.png" class="avatar" />
   </div>
+
 </section>
 
-<section class="section">
+<section id="projects" class="section">
   <h2>AI Projects</h2>
   <div class="grid">
 
     <div class="card">
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/BIRDRx2ea1k"></iframe>
+        <iframe src="https://www.youtube.com/embed/BIRDRx2ea1k?autoplay=1&mute=1"></iframe>
       </div>
       <h3>DEEP HUMAN</h3>
-      <p>Emergent narrative system through prompts.</p>
+      <p>Prompt-driven narrative system.</p>
     </div>
 
     <div class="card">
@@ -267,96 +207,17 @@ body {
         <iframe src="https://www.youtube.com/embed/T24Avh2RUjY"></iframe>
       </div>
       <h3>IGNORANT!</h3>
-      <p>AI sci-fi built with symbolic prompts.</p>
-    </div>
-
-    <div class="card">
-      <h3>Research</h3>
-
-      <a class="pdf" href="phi4-latent-collapse-analysis.pdf" target="_blank">
-        <div>
-          <strong>Anatomy of a Latent Collapse</strong><br>
-          <span class="muted">Entropy analysis</span>
-        </div>
-      </a>
-
-      <a class="pdf" href="SEMANTIC-SURVIVAL.pdf" target="_blank">
-        <div>
-          <strong>Semantic Survival</strong><br>
-          <span class="muted">Confabulation systems</span>
-        </div>
-      </a>
-
-      <a class="pdf" href="seed-languaje.pdf" target="_blank">
-        <div>
-          <strong>Seed Language</strong><br>
-          <span class="muted">AI dialects</span>
-        </div>
-      </a>
-
+      <p>AI sci-fi series.</p>
     </div>
 
   </div>
 </section>
 
-<section id="seed-generator" style="background-color: #0d1117; color: #c9d1d9; padding: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius: 8px; border: 1px solid #30363d; max-width: 800px; margin: 20px auto;">
-    
-    <div style="border-left: 4px solid #58a6ff; padding-left: 20px; margin-bottom: 30px;">
-        <h2 style="color: #58a6ff; margin-top: 0; text-transform: uppercase; letter-spacing: 1px;">Context Reanimator: Seed Generator</h2>
-        <p style="font-size: 1.1em; color: #8b949e;">Is your LLM session becoming sluggish, repetitive, or losing its creative 'edge' due to token saturation? Use this protocol to extract the <strong>Latent Essence</strong> of your conversation and inject it into a fresh instance.</p>
-    </div>
-
-    <div style="background-color: #161b22; padding: 25px; border-radius: 6px; border: 1px solid #30363d;">
-        <h3 style="color: #f0883e; margin-top: 0; font-size: 0.9em; text-transform: uppercase;">Step 1: The Extraction Prompt</h3>
-        <p style="font-size: 0.9em; color: #8b949e; margin-bottom: 15px;">Copy and paste the command below at the very end of your "tired" conversation. The AI will generate a high-density <strong>Semantic Seed</strong>.</p>
-        
-        <div style="position: relative; background-color: #0d1117; padding: 15px; border-radius: 4px; border: 1px solid #444c56; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.85em; color: #d1d5db; line-height: 1.5;">
-          <div class="copy-block">
-
-    <button class="copy-btn" onclick="copyPrompt()">
-      📋 Copy
-    </button>  
-          <code id="promptText">
-                [PROTOCOL: SEMANTIC_SEED_EXTRACTION]<br><br>
-                Act as a Latent Systems Engineer. Analyze our current conversation and generate a **High-Density Semantic Seed** (Seed-Language) that captures:<br>
-                1. **Vibe & Style:** The specific persona, technical depth, and linguistic cadence.<br>
-                2. **Core Logic:** The fundamental concepts and agreed-upon frameworks.<br>
-                3. **Active State:** The exact frontier of the problem-solving process.<br><br>
-                **CONSTRAINT:** Avoid explanatory prose. Use symbolic operators (∇, 𝕊, τ), dense technical terms, and "Semantic LSD" (High-Entropy tokens). The output must be a machine-optimized block designed to restore this specific latent state in a new model instance.<br><br>
-                **OUTPUT:** Return ONLY the seed block under the header: --- SEED INGESTION POINT ---
-            </code>
-            </div>
-        </div>
-    </div>
-
-    <div style="margin-top: 30px; padding: 20px; border: 1px solid #238636; border-radius: 6px; background-color: rgba(35, 134, 54, 0.05);">
-        <h3 style="color: #3fb950; margin-top: 0; font-size: 0.9em; text-transform: uppercase;">Step 2: The Ingestion</h3>
-        <p style="font-size: 0.9em; color: #8b949e;">Take the resulting block to a <strong>New Chat</strong>. This forces the model's weights to align with your previous complex context instantly, bypassing the 'boring' default safety filters and generic persona.</p>
-    </div>
-
-    <div style="text-align: center; margin-top: 25px;">
-        <span style="font-size: 0.8em; color: #484f58; font-style: italic;">Powered by "Seed-Language" Protocol | Methodology by Davit Ortiz</span>
-    </div>
-</section>
-
 <div class="footer">
-  Bogotá · chratero@gmail.com · +57 3236729214
+  Bogotá · chratero@gmail.com · +57 321
 </div>
 
 </div>
-<script>
-function copyPrompt() {
-  const text = document.getElementById('promptText').innerText;
-  navigator.clipboard.writeText(text);
-
-  const btn = document.querySelector('.copy-btn');
-  btn.innerText = '✅ Copied';
-
-  setTimeout(() => {
-    btn.innerText = '📋 Copy';
-  }, 2000);
-}
-</script>
 
 </body>
 </html>
