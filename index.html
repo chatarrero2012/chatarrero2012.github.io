@@ -158,6 +158,68 @@ body {
   text-align: center;
   color: var(--muted);
 }
+/* PDF */
+.pdf {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  margin-top: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s;
+}
+
+.pdf:hover {
+  border-color: var(--accent);
+  background: rgba(76,201,240,0.08);
+}
+
+/* SEED BLOCK */
+.seed {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin-top: 20px;
+  color: #c9d1d9;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.copy-btn:hover {
+  background: rgba(76,201,240,0.15);
+  border-color: var(--accent);
+}
+  .copy-block {
+  position: relative;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #c9d1d9;
+}
 
 </style>
 </head>
@@ -282,11 +344,62 @@ body {
 
   </div>
 </section>
+<section id="seed-generator" style="background-color: #0d1117; color: #c9d1d9; padding: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius: 8px; border: 1px solid #30363d; max-width: 800px; margin: 20px auto;">
+    
+    <div style="border-left: 4px solid #58a6ff; padding-left: 20px; margin-bottom: 30px;">
+        <h2 style="color: #58a6ff; margin-top: 0; text-transform: uppercase; letter-spacing: 1px;">Context Reanimator: Seed Generator</h2>
+        <p style="font-size: 1.1em; color: #8b949e;">Is your LLM session becoming sluggish, repetitive, or losing its creative 'edge' due to token saturation? Use this protocol to extract the <strong>Latent Essence</strong> of your conversation and inject it into a fresh instance.</p>
+    </div>
+
+    <div style="background-color: #161b22; padding: 25px; border-radius: 6px; border: 1px solid #30363d;">
+        <h3 style="color: #f0883e; margin-top: 0; font-size: 0.9em; text-transform: uppercase;">Step 1: The Extraction Prompt</h3>
+        <p style="font-size: 0.9em; color: #8b949e; margin-bottom: 15px;">Copy and paste the command below at the very end of your "tired" conversation. The AI will generate a high-density <strong>Semantic Seed</strong>.</p>
+        
+        <div style="position: relative; background-color: #0d1117; padding: 15px; border-radius: 4px; border: 1px solid #444c56; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.85em; color: #d1d5db; line-height: 1.5;">
+          <div class="copy-block">
+
+    <button class="copy-btn" onclick="copyPrompt()">
+      📋 Copy
+    </button>  
+          <code id="promptText">
+                [PROTOCOL: SEMANTIC_SEED_EXTRACTION]<br><br>
+                Act as a Latent Systems Engineer. Analyze our current conversation and generate a **High-Density Semantic Seed** (Seed-Language) that captures:<br>
+                1. **Vibe & Style:** The specific persona, technical depth, and linguistic cadence.<br>
+                2. **Core Logic:** The fundamental concepts and agreed-upon frameworks.<br>
+                3. **Active State:** The exact frontier of the problem-solving process.<br><br>
+                **CONSTRAINT:** Avoid explanatory prose. Use symbolic operators (∇, 𝕊, τ), dense technical terms, and "Semantic LSD" (High-Entropy tokens). The output must be a machine-optimized block designed to restore this specific latent state in a new model instance.<br><br>
+                **OUTPUT:** Return ONLY the seed block under the header: --- SEED INGESTION POINT ---
+            </code>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; padding: 20px; border: 1px solid #238636; border-radius: 6px; background-color: rgba(35, 134, 54, 0.05);">
+        <h3 style="color: #3fb950; margin-top: 0; font-size: 0.9em; text-transform: uppercase;">Step 2: The Ingestion</h3>
+        <p style="font-size: 0.9em; color: #8b949e;">Take the resulting block to a <strong>New Chat</strong>. This forces the model's weights to align with your previous complex context instantly, bypassing the 'boring' default safety filters and generic persona.</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 25px;">
+        <span style="font-size: 0.8em; color: #484f58; font-style: italic;">Powered by "Seed-Language" Protocol | Methodology by Davit Ortiz</span>
+    </div>
+</section>
 <div class="footer">
   Bogotá · chratero@gmail.com · +57 3236729214
 </div>
 
 </div>
+<script>
+function copyPrompt() {
+  const text = document.getElementById('promptText').innerText;
+  navigator.clipboard.writeText(text);
 
+  const btn = document.querySelector('.copy-btn');
+  btn.innerText = '✅ Copied';
+
+  setTimeout(() => {
+    btn.innerText = '📋 Copy';
+  }, 2000);
+}
+</script>
 </body>
 </html>
